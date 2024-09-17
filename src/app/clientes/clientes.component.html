@@ -1,1 +1,6 @@
-<p>To bem teso</p>
+<p>To bem motivado: {{clientes}}</p>
+<ul>
+    <li *ngFor="let cliente of clientes"> 
+        {{ cliente.nome }} -> {{ cliente.idade }} 
+    </li>
+</ul>
