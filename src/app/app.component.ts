@@ -8,15 +8,15 @@ import jQuery from 'jquery';
 })
 export class AppComponent implements AfterViewInit{
 
-
   ngAfterViewInit(): void {
-    
+    /*
     (function($) {
       "use strict";
-  
       // Add active state to sidbar nav links
       var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-          $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
+        console.log(window.location)
+      
+      $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
               if (this.href === path) {
                   $(this).addClass("active");
               }
@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit{
           $("body").toggleClass("sb-sidenav-toggled");
       });
   })(jQuery);
-  
+  */
   }
   title = 'project';
 
