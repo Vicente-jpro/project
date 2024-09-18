@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cliente } from '../cliente';
+import { Cliente } from '../cliente';
 
 @Component({
   selector: 'app-form',
@@ -8,12 +8,14 @@ import { cliente } from '../cliente';
 })
 export class FormComponent implements OnInit {
 
+  cliente: Cliente = new Cliente()
   
   constructor(){
+    this.cliente.nome = "Vicente Simao"
 
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
 }
