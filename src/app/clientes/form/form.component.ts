@@ -12,10 +12,19 @@ export class FormComponent implements OnInit {
   
   constructor(){
     this.cliente.nome = "Vicente Simao"
-
+    console.log(this.cliente);
   }
+
+ 
+  
   ngOnInit(): void {
     
   }
 
+
+  greet(){
+    console.log('Cliquei no botao')
+
+    console.log(this.cliente);
+  }
 }
