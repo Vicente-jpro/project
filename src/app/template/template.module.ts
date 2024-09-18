@@ -5,8 +5,6 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
