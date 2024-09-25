@@ -15,8 +15,6 @@ export class FormComponent implements OnInit {
     console.log(this.cliente);
   }
 
- 
-  
   ngOnInit(): void {
     
   }
