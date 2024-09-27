@@ -7,6 +7,8 @@ import { TecnicaComponent } from './tecnica/tecnica.component';
 import { ClientesModule } from './clientes/clientes.module';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
+import { ClientesService } from './services/clientes.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,15 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     ClientesModule,
+    HttpClientModule,
     TemplateModule,
   ],
-  providers: [],
+  providers: [
+    ClientesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
