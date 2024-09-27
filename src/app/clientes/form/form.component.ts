@@ -20,9 +20,10 @@ export class FormComponent implements OnInit {
   }
 
 
-  greet(){
+  onSubmit(){
     console.log('Cliquei no botao')
 
     console.log(this.cliente);
   }
+
 }
