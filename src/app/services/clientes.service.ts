@@ -12,10 +12,9 @@ export class ClientesService {
 
   salvar(cliente: Cliente): Observable<Cliente>{
     return this.http
-          .post<Cliente>('http://localhost:8080/api/clientes', cliente)
+          .post<Cliente>('http://localhost:8080/api/clientes', cliente);
   }
   getCliente(): Cliente{
-    
     let cliente: Cliente = new Cliente
     cliente.bi = '12324243PK000'
     cliente.dataCadastro = '2016/07/10'
