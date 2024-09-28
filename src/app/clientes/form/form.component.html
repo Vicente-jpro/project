@@ -1,5 +1,10 @@
 
     <p class="fs-2  mt-5">Cadastro de Cliente</p>
+
+    <div class="alert alert-success text-center" role="alert" *ngIf="success == true">
+        {{ (cliente.idCliente == 0) ? 'Cliente atualizado com sucesso':'Cliente Salvo com sucesso.'}}
+    </div>
+    
     <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="mb-3 col-md-6">
             <label for="exampleFormControlInput1" class="form-label">id</label>
