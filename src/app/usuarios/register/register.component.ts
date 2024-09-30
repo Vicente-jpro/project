@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
 
   success: boolean = false
   successMessage = ''
-  errorMessage = ''
+  errorMessages = []
   firstName: string = ''
   lastName: string = ''
   usuario: Usuario = new Usuario()
@@ -23,9 +23,10 @@ export class RegisterComponent implements OnInit {
 
   }
 
+
   onSubmit(): void{
     
-    this.usuario = this.limparInput(this.usuario)
+    this.usuario = this.limparEspacosInput(this.usuario)
 
     this.usuarioService
           .salvar(this.usuario)
@@ -35,16 +36,16 @@ export class RegisterComponent implements OnInit {
               console.log(response)
               this.successMessage = 'Usuario salvo com sucesso'
             },
-            error: response =>{
+            error: errorResponse =>{
               this.success = false
-              this.errorMessage = response.error
-              console.log(response)
+              this.errorMessages = errorResponse.error.errors
+              console.log(errorResponse.error.errors)
             }
           })
  
   }
 
-  limparInput(usuario: Usuario): Usuario{
+  limparEspacosInput(usuario: Usuario): Usuario{
     
     this.usuario.username = this.firstName.trim() +' '+this.lastName.trim()
     this.usuario.email = this.usuario.email.trim()

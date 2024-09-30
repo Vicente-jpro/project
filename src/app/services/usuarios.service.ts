@@ -22,4 +22,11 @@ export class UsuariosService {
                   this.httpOptions
                  )
   }
+
+  getByIdUser(idUsuario: number): Observable<Usuario>{
+    return this.http 
+                .get<Usuario>(`http://localhost:8080/api/usuarios/${idUsuario}`,
+                  this.httpOptions
+                )
+  }
 }

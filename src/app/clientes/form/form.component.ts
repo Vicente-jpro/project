@@ -9,6 +9,7 @@ import {ClientesService} from '../../services/clientes.service';
 })
 export class FormComponent implements OnInit {
 
+  value: boolean = false
   success: boolean = false
   cliente: Cliente = new Cliente()
   constructor(private clienteService: ClientesService){
@@ -31,5 +32,6 @@ export class FormComponent implements OnInit {
           })
    
   }
+
 
 }

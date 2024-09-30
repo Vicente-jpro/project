@@ -18,7 +18,7 @@ export class ClientesService {
     let cliente: Cliente = new Cliente
     cliente.bi = '12324243PK000'
     cliente.dataCadastro = '2016/07/10'
-    cliente.idCliente = 1
+    cliente.idCliente = 0
     cliente.nome = 'Frango albertopp'
     return cliente;
   }
