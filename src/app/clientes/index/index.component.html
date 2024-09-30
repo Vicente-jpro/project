@@ -1,1 +1,26 @@
-<p>index works! todos os clientes</p>
+<p class="fs-5">
+    <strong>Lista de Clientes</strong>
+</p>
+
+<hr/>
+<button type="button" routerLink="/clientes/form" class="btn btn-warning">Novo cliente</button>
+<br/><br/>
+
+<table class="able table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">B.I</th>
+        <th scope="col">Data de Cadastro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row"> {{ cliente.idCliente }} </th>
+        <td colspan="2"> {{ cliente.nome }} </td>
+        <td colspan="2"> {{ cliente.bi }} </td>
+        <td> {{  cliente.dataCadastro }}</td>
+      </tr>
+    </tbody>
+  </table>
