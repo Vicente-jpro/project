@@ -5,9 +5,9 @@ import { IndexComponent } from './index/index.component';
 import { LayoutComponent } from '../layout/layout.component';
 
 const routes: Routes = [
-  {path: '', component: LayoutComponent, children: [
-    {path: 'clientes/form', component: FormComponent},
-    {path: 'clientes', component: IndexComponent}  
+  {path: 'clientes', component: LayoutComponent, children: [
+    {path: 'form', component: FormComponent},
+    {path: '', component: IndexComponent}  
   ]
 }
 ];
