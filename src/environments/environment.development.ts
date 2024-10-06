@@ -1,5 +1,6 @@
 export const environment = {
     apiURLBase: 'http://localhost:8080/api',
     clienteId: 'my-angular-app',
-    secret: '12345'
+    clienteSecret: '12345',
+    oauth_token: '/oauth/token'
 };

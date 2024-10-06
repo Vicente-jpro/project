@@ -11,7 +11,8 @@ import { environment } from '../../environments/environment.development';
 export class UsuariosService {
 
   URL: string = environment.apiURLBase
-  
+  tokenURL: string = URL + environment.oauth_token
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -35,6 +36,6 @@ export class UsuariosService {
   }
 
   login(usuarioLogin: UsuarioLogin): Observable<any>{
-    return this.http.post<any>(`${URL}/oauth/token`, usuarioLogin)
+    return this.http.post<any>(`${this.tokenURL}`, usuarioLogin)
   }
 }
