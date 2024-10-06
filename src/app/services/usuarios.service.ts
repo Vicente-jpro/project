@@ -29,4 +29,8 @@ export class UsuariosService {
                   this.httpOptions
                 )
   }
+
+  login(usuario: Usuario): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/api/oauth/token', usuario)
+  }
 }

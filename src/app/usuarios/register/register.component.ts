@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuariosService } from '../../services/usuarios.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
+
+  
 
   success: boolean = false
   successMessage = ''
@@ -16,7 +19,7 @@ export class RegisterComponent implements OnInit {
   usuario: Usuario = new Usuario()
   confirm_password: string = ''
 
-  constructor(private usuarioService: UsuariosService){
+  constructor(private usuarioService: UsuariosService, private router: Router){
   }
 
   ngOnInit(): void {
@@ -35,6 +38,7 @@ export class RegisterComponent implements OnInit {
               this.success = true
               console.log(response)
               this.successMessage = 'Usuario salvo com sucesso'
+              this.router.navigate(['/usuarios/login']);
             },
             error: errorResponse =>{
               this.success = false
