@@ -10,12 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { ClientesService } from './services/clientes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TecnicaComponent,
-    HomeComponent
+    HomeComponent,
+    LayoutComponent
   ],
   imports: [
     AppRoutingModule,
