@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientesService } from '../../services/clientes.service';
 import { Cliente } from '../cliente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -12,7 +13,9 @@ export class IndexComponent implements OnInit {
   successMessage: string = ''
   errorMessages = []
   clientes: Cliente[] = []
-  constructor(private clienteService: ClientesService){
+  constructor(private clienteService: ClientesService, 
+    private router: Router
+  ){
 
   }
   
@@ -25,6 +28,11 @@ export class IndexComponent implements OnInit {
             } 
           })
 
+  }
+
+  editar(cliente: Cliente){
+    this.router.navigate([`/clientes/form/${cliente.id}`])
+    console.log(cliente)
   }
 
   eliminar(cliente: Cliente){

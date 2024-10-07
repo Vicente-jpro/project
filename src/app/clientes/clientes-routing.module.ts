@@ -7,6 +7,7 @@ import { LayoutComponent } from '../layout/layout.component';
 const routes: Routes = [
   {path: 'clientes', component: LayoutComponent, children: [
     {path: 'form', component: FormComponent},
+    {path: 'form/:id', component: FormComponent},
     {path: '', component: IndexComponent}  
   ]
 }

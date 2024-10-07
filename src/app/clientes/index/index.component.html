@@ -30,11 +30,11 @@
     <tbody>
       <tr *ngFor="let cliente of clientes">
         <th scope="row"> {{ cliente.id }} </th>
-        <td > {{ cliente.nome }} </td>
-        <td > {{ cliente.bi }} </td>
-        <td > {{  cliente.dataCadastro }}</td>
-        <td > <button type="button" class="btn btn-warning">Editar</button> </td>
-        <td > <button type="button" class="btn btn-danger" (click)="eliminar(cliente)">Eliminar</button> </td>
+        <td> {{ cliente.nome }} </td>
+        <td> {{ cliente.bi }} </td>
+        <td> {{  cliente.dataCadastro }}</td>
+        <td> <button type="button" class="btn btn-warning" (click)="editar(cliente)">Editar</button> </td>
+        <td> <button type="button" class="btn btn-danger" (click)="eliminar(cliente)">Eliminar</button> </td>
       </tr>
     </tbody>
   </table>
