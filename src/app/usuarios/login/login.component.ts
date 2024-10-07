@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
-import { UsuarioLogin } from '../usuarioLogin';
+import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   
   @Input() text = ''
 
-  usuarioLogin: UsuarioLogin = new UsuarioLogin()
+  usuario: Usuario = new Usuario()
 
   constructor(private usuarioService: UsuariosService){
     
@@ -24,16 +24,16 @@ export class LoginComponent implements OnInit {
   onSubmit(){
 
     this.usuarioService
-        .login(this.usuarioLogin)
+        .login(this.usuario)
         .subscribe({
           next: response => {
             console.log(response)
           },
           error: errorResposne => {
             console.log(errorResposne)
+            console.log(errorResposne.error.erros)
           }
         })
-    console.log(this.usuarioLogin)
   }
 
 }

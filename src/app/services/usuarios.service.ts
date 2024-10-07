@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../usuarios/usuario';
-import { UsuarioLogin } from '../usuarios/usuarioLogin';
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
@@ -10,8 +9,10 @@ import { environment } from '../../environments/environment.development';
 })
 export class UsuariosService {
 
-  URL: string = environment.apiURLBase
-  tokenURL: string = URL + environment.oauth_token
+  api_url_base: string = environment.api_url_base
+  api_url_oauth_token: string = environment.api_url_oauth_token
+  cliente_id: string = environment.cliente_id
+  cliente_secret: string = environment.cliente_secret
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,7 +23,7 @@ export class UsuariosService {
 
   salvar(usuario: Usuario): Observable<Usuario>{
     return this.http
-                .post<Usuario>(`${URL}/usuarios`,
+                .post<Usuario>(`${this.api_url_base}/usuarios`,
                   usuario,
                   this.httpOptions
                  )
@@ -30,12 +31,31 @@ export class UsuariosService {
 
   getByIdUser(idUsuario: number): Observable<Usuario>{
     return this.http 
-                .get<Usuario>(`${URL}/usuarios/${idUsuario}`,
+                .get<Usuario>(`${this.api_url_base}/usuarios/${idUsuario}`,
                   this.httpOptions
                 )
   }
 
-  login(usuarioLogin: UsuarioLogin): Observable<any>{
-    return this.http.post<any>(`${this.tokenURL}`, usuarioLogin)
+  login(usuario: Usuario): Observable<any>{
+
+    console.log(this.api_url_oauth_token)
+    console.log('username: ', usuario.username.length)
+    console.log('password: ', usuario.passwrd.length)
+
+    const params = new HttpParams()
+          .set('username', usuario.username)
+          .set('password', usuario.passwrd)
+          .set('grant_type', 'password')
+
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic '+ btoa(`${this.cliente_id}:${this.cliente_secret}`)
+    }
+
+    return this.http.post(this.api_url_oauth_token.toString(), params.toString(), {headers})
   }
+
 }
+ 
+
+// Miguel cordeiro

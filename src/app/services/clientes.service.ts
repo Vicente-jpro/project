@@ -16,7 +16,7 @@ export class ClientesService {
     }
   }
 
-  URL: string = environment.apiURLBase
+  URL: string = environment.api_url_base
 
   constructor(private http: HttpClient) { }
 
@@ -26,12 +26,7 @@ export class ClientesService {
   }
 
   getClientes(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(`${URL}/clientes`, {
-      headers: {
-        'Content-Type':  'application/json',
-         Authorization: 'Bearer Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjc2OTExMDgsInVzZXJfbmFtZSI6IlZpY2VudGUgU2ltYW8iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiNjVlMGNiN2YtNmI2Zi00ZTJmLTk4MmYtZjhjNWViMzU2ZmU3IiwiY2xpZW50X2lkIjoibXktYW5ndWxhci1hcHAiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.NDcZfNDCyCAK5UnGYsw3GM5LSOMSir5bVT3vrAnNEbU'
-      }
-    });
+    return this.http.get<Cliente[]>(`${URL}/clientes`);
   }
 
   getCliente(): Cliente{
