@@ -1,9 +1,9 @@
     <p class="fs-2  mt-5">Cadastro de Cliente</p>
     <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3 col-md-6" *ngIf="cliente.idCliente">
+        <div class="mb-3 col-md-6" *ngIf="cliente.id">
             <label for="exampleFormControlInput1" class="form-label">id</label>
             <input type="number" class="form-control" id="exampleFormControlInput1"
-            [ngModel]="cliente.idCliente" name="idCliente" disabled="true">
+            [ngModel]="cliente.id" name="idCliente" disabled="true">
         </div>
         <div class="mb-3 col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Nome {{cliente.nome}}</label>
@@ -16,10 +16,11 @@
             <input type="text" class="form-control" id="exampleFormControlInput1" 
            placeholder="000000XX00"  [(ngModel)]="cliente.bi" name="bi">
         </div>
+        {{ cliente.dataCadastro }}
         <div class="mb-3 col-md-6">
             <label for="exampleFormControlTextarea1" class="form-label">Data de Cadastro</label>
             <input type="date" class="form-control" id="exampleFormControlInput1" 
-            placeholder="yyyy/mm/dd" [(ngModel)]="cliente.dataCadastro" name="dataCadastro">
+            placeholder="dd/mm/yyyy" [(ngModel)]="cliente.dataCadastro" name="dataCadastro" >
         </div>
         <div class="d-grid gap-2 col-md-6">
           <button type="submit" class="btn btn-success">Button</button>

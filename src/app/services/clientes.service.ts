@@ -9,14 +9,14 @@ import { environment } from '../../environments/environment.development';
 })
 export class ClientesService {
 
-
   api_url_base: string = environment.api_url_base
 
   constructor(private http: HttpClient) { }
 
   salvar(cliente: Cliente): Observable<Cliente>{
+    // http://localhost:8080/api `${this.api_url_base}/clientes`
     return this.http
-          .post<Cliente>(`${this.api_url_base}/clientes`, cliente);
+          .post<Cliente>('http://localhost:8080/api/clientes', cliente);
   }
 
   getClientes(): Observable<Cliente[]>{
@@ -24,12 +24,7 @@ export class ClientesService {
     return this.http.get<Cliente[]>(`${this.api_url_base}/clientes`);
   }
 
-  getCliente(): Cliente{
-    let cliente: Cliente = new Cliente
-    cliente.bi = '12324243PK000'
-    cliente.dataCadastro = '2016/07/10'
-    cliente.idCliente = 0
-    cliente.nome = 'Frango albertopp'
-    return cliente;
+  getCliente(cliente: Cliente): Observable<Cliente>{
+    return this.http.get<Cliente>(`${this.api_url_base}/clientes/${cliente.id}`);
   }
 }

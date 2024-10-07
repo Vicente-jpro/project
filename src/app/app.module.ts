@@ -8,9 +8,11 @@ import { ClientesModule } from './clientes/clientes.module';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { ClientesService } from './services/clientes.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { LayoutComponent } from './layout/layout.component';
+import { UsuariosService } from './services/usuarios.service';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,13 @@ import { LayoutComponent } from './layout/layout.component';
     UsuariosModule
   ],
   providers: [
-    ClientesService
+    ClientesService,
+    UsuariosService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

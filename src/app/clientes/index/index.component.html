@@ -6,7 +6,7 @@
 <button type="button" routerLink="/clientes/form" class="btn btn-warning">Novo cliente</button>
 <br/><br/>
 
-<table class="able table-hover">
+<table class="table  table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let cliente of clientes">
-        <th scope="row"> {{ cliente.idCliente }} </th>
+        <th scope="row"> {{ cliente.id }} </th>
         <td colspan="2"> {{ cliente.nome }} </td>
         <td colspan="2"> {{ cliente.bi }} </td>
         <td> {{  cliente.dataCadastro }}</td>
