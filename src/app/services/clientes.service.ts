@@ -27,4 +27,8 @@ export class ClientesService {
   getCliente(cliente: Cliente): Observable<Cliente>{
     return this.http.get<Cliente>(`${this.api_url_base}/clientes/${cliente.id}`);
   }
+
+  eliminar(cliente: Cliente): Observable<any>{
+    return this.http.delete(`${this.api_url_base}/clientes/${cliente.id}`, )
+  }
 }
