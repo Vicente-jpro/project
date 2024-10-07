@@ -14,26 +14,16 @@ export class UsuariosService {
   cliente_id: string = environment.cliente_id
   cliente_secret: string = environment.cliente_secret
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
   constructor(private http: HttpClient) { }
 
   salvar(usuario: Usuario): Observable<Usuario>{
     return this.http
-                .post<Usuario>(`${this.api_url_base}/usuarios`,
-                  usuario,
-                  this.httpOptions
-                 )
+                .post<Usuario>(`${this.api_url_base}/usuarios`, usuario)
   }
 
   getByIdUser(idUsuario: number): Observable<Usuario>{
     return this.http 
-                .get<Usuario>(`${this.api_url_base}/usuarios/${idUsuario}`,
-                  this.httpOptions
-                )
+                .get<Usuario>(`${this.api_url_base}/usuarios/${idUsuario}`)
   }
 
   login(usuario: Usuario): Observable<any>{
