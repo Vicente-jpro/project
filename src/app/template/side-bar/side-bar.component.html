@@ -35,7 +35,7 @@
                                 <a class="nav-link" routerLink="/usuarios/login">Login</a>
 
                                 <a class="nav-link" routerLink="/usuarios/register">Register</a>
-                                <a class="nav-link" href="password.html">Forgot Password</a>
+                                <a class="nav-link" (click)="logout()" href="#">Logout</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError"
@@ -59,7 +59,7 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            Start Bootstrap
+            {{ username }}
         </div>
     </nav>
 </div>
