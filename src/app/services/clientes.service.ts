@@ -19,6 +19,11 @@ export class ClientesService {
           .post<Cliente>('http://localhost:8080/api/clientes', cliente);
   }
 
+  atualizar(cliente: Cliente, idCliente: number): Observable<Cliente>{
+    return this.http
+               .patch<Cliente>(`${this.api_url_base}/clientes/${idCliente}`, cliente)
+  }
+
   getClientes(): Observable<Cliente[]>{
 
     return this.http.get<Cliente[]>(`${this.api_url_base}/clientes`);

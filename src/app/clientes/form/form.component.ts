@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
 
     this.ativatedRoute.params.subscribe(params => {
       if (params['id'] != null ){
-        
+      
         this.cliente.id = params['id']
 
         this.clienteService.getClienteById(this.cliente.id)
@@ -50,12 +50,30 @@ export class FormComponent implements OnInit {
 
 
   onSubmit(){
-    console.log('Cliquei no botao')
-  
     let data = new DateFormatter(this.cliente.dataCadastro)
-    console.log(this.cliente.dataCadastro)
-  
     this.cliente.dataCadastro = data.getDate()
+
+    console.log(this.cliente.dataCadastro)
+    
+    if (this.cliente.id > 0){
+      console.log(this.cliente)
+      // Atualizar
+      this.clienteService
+          .atualizar(this.cliente, this.cliente.id)
+          .subscribe({
+            next: response => {
+              this.cliente = response
+              this.success = true
+              this.successMessage = "Cliente atualizado com sucesso."
+            },
+            error: errorResponse => {
+              this.errorMessages = errorResponse.error.errors
+            }
+          })
+
+    }else{
+    // Salvar
+
   
     this.clienteService
           .salvar(this.cliente)
@@ -69,6 +87,7 @@ export class FormComponent implements OnInit {
               console.log(errorResponse)
             }
           })
+      }
    
   }
 

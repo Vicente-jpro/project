@@ -21,13 +21,12 @@ export class IndexComponent implements OnInit {
   
   ngOnInit(): void {
    this.clienteService
-          .getClientes()
-          .subscribe({
-            next: response => {
-              this.clientes = response   
-            } 
-          })
-
+        .getClientes()
+        .subscribe({
+          next: response => {
+            this.clientes = response   
+          } 
+        })
   }
 
   editar(cliente: Cliente){
