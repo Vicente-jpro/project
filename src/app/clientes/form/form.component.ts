@@ -29,22 +29,21 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
 
     this.ativatedRoute.params.subscribe(params => {
-      if (params['id'] == null ){
-        this.router.navigate(['/clientes'])
-        console.log('id invalido')
-      }else{
-      this.cliente.id = params['id']
+      if (params['id'] != null ){
+        
+        this.cliente.id = params['id']
 
-      this.clienteService.getClienteById(this.cliente.id)
-          .subscribe({
-            next: response => {
-              this.cliente = response
-          },
-          error: errorResponse => {
-            this.errorMessages = errorResponse.error.errors
-          }
-        })
-      console.log(this.cliente)
+        this.clienteService.getClienteById(this.cliente.id)
+            .subscribe({
+              next: response => {
+                this.cliente = response
+            },
+            error: errorResponse => {
+              this.errorMessages = errorResponse.error.errors
+            }
+          })
+        console.log(this.cliente)
+      
       }
     })
   }
